@@ -49,10 +49,15 @@ class EggTimerFragment : Fragment() {
         binding.eggTimerViewModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
 
-        // Call create channel
+        // Call create channels
         createChannel(
             getString(R.string.egg_notification_channel_id),
             getString(R.string.egg_notification_channel_name)
+        )
+
+        createChannel(
+            getString(R.string.breakfast_notification_channel_id),
+            getString(R.string.breakfast_notification_channel_name)
         )
 
         return binding.root
@@ -81,8 +86,6 @@ class EggTimerFragment : Fragment() {
                 NotificationManager::class.java
             )
             notificationManager.createNotificationChannel(notificationChannel)
-
-            // TODO: Step 1.6 END create channel
         }
     }
 
